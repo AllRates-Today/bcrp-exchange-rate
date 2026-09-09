@@ -1,6 +1,6 @@
 {
   "name": "bcrp-exchange-rate",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "Official Central Reserve Bank of Peru (Peru) daily exchange rates — 2 currencies vs PEN, history since 2016. Zero-dependency Node.js/TypeScript client.",
   "keywords": [
     "bcrp",
