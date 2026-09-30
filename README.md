@@ -85,10 +85,10 @@ const pair = await getRate('USD', 'PEN', { apiKey: 'art_live_...' });
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-09-07',   // Central Reserve Bank of Peru's own publication date
+  rate_date: '2026-09-24',   // Central Reserve Bank of Peru's own publication date
   source: 'USD',
   target: 'PEN',
-  rate: 3.372,
+  rate: 3.406,
   rate_type: 'sell',
   derived: false,
   method: 'published',
@@ -113,10 +113,10 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-09-07',
+  rate_date: '2026-09-24',
   rates: [
-    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.372 },
-    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.351 },
+    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.406 },
+    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.4 },
     // … the rest of the published table (2 currencies vs PEN)
   ],
   disclaimer: '…'
@@ -156,7 +156,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bcrp-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-09-07' },
+  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-09-24' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -169,11 +169,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'PEN',
   from: '2026-01-01',
-  to: '2026-09-07',
+  to: '2026-09-24',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-09-07', rate: 3.372, rate_type: 'sell', derived: false, method: 'published' },
+    { date: '2026-09-24', rate: 3.406, rate_type: 'sell', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
