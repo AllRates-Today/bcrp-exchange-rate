@@ -40,14 +40,14 @@ The open endpoint serves the *latest* table only and asks for a visible attribut
 Today's full Central Reserve Bank of Peru table, straight from the central bank's latest publication. On GitHub it is refreshed by [a daily Action](.github/workflows/daily-table.yml) that reads the keyless endpoint above and commits only when the central bank publishes a new table; the copy on npm is as of the package's publish date.
 
 <!-- daily-table:start -->
-Published **2026-10-07** by Central Reserve Bank of Peru (the API currently flags this table as stale) — 4 rates. Updated 2026-10-12.
+Published **2026-10-09** by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-12.
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
-| EUR | PEN | buy | 3.582 |
-| EUR | PEN | sell | 4.051 |
-| USD | PEN | buy | 3.446 |
-| USD | PEN | sell | 3.453 |
+| EUR | PEN | buy | 3.833 |
+| EUR | PEN | sell | 3.851 |
+| USD | PEN | buy | 3.45 |
+| USD | PEN | sell | 3.457 |
 
 Source: [Official rates published by BCRP, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/bcrp/). Rates are as printed by the central bank; AllRatesToday is not affiliated with it.
 <!-- daily-table:end -->
@@ -104,10 +104,10 @@ const pair = await getRate('USD', 'PEN', { apiKey: 'art_live_...' });
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-10-06',   // Central Reserve Bank of Peru's own publication date
+  rate_date: '2026-10-09',   // Central Reserve Bank of Peru's own publication date
   source: 'USD',
   target: 'PEN',
-  rate: 3.437,
+  rate: 3.457,
   rate_type: 'sell',
   derived: false,
   method: 'published',
@@ -132,10 +132,10 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-10-06',
+  rate_date: '2026-10-09',
   rates: [
-    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.437 },
-    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.431 },
+    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.457 },
+    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.45 },
     // … the rest of the published table (2 currencies vs PEN)
   ],
   disclaimer: '…'
@@ -175,7 +175,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bcrp-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-10-06' },
+  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-10-09' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -188,11 +188,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'PEN',
   from: '2026-01-01',
-  to: '2026-10-06',
+  to: '2026-10-09',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-10-06', rate: 3.437, rate_type: 'sell', derived: false, method: 'published' },
+    { date: '2026-10-09', rate: 3.457, rate_type: 'sell', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
@@ -242,6 +242,7 @@ curl "https://allratestoday.com/api/v1/central-bank/bcrp/latest?format=xml&api_k
 - MCP server: `npx -y @allratestoday/central-bank-mcp` (stdio) or the hosted endpoint `https://allratestoday.com/api/mcp` — tools for official rates, history, cross-bank comparison and publication calendars
 - Already using the general SDK or MCP server? Since 2026-10-01 [`@allratestoday/sdk`](https://www.npmjs.com/package/@allratestoday/sdk) 1.4+ has `officialRates('bcrp')` and [`@allratestoday/mcp-server`](https://www.npmjs.com/package/@allratestoday/mcp-server) 0.6+ has a `get_official_rates` tool — both return this source's latest table with no key, so you can add it without a second dependency
 - Claude Code plugin (no key): `/plugin marketplace add AllRates-Today/claude-code-plugin` then `/plugin install allratestoday@allratestoday` — bundles both MCP servers plus an `/official-rate bcrp ...` command
+- Need dated tables or history for an evaluation? Agents can self-issue a trial key with no signup: `POST https://allratestoday.com/api/agent/keys` (send `Content-Type: application/json`) returns a 100-call key valid 7 days; the MCP servers expose it as `request_trial_key`
 - Machine-readable site guide: [llms.txt](https://allratestoday.com/llms.txt) · [for-ai-agents](https://allratestoday.com/for-ai-agents/)
 
 ## ⚖️ Published vs derived rates
