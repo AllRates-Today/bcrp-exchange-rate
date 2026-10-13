@@ -42,14 +42,14 @@ The open endpoint serves the *latest* table only and asks for a visible attribut
 The image is rendered live from the keyless endpoint above, so it follows the central bank's publications on npm and on GitHub alike without a new release. The text copy below is there for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the central bank publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-Published **2026-10-09** by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-12.
+Published **2026-10-12** by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-13.
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
-| EUR | PEN | buy | 3.833 |
-| EUR | PEN | sell | 3.851 |
-| USD | PEN | buy | 3.45 |
-| USD | PEN | sell | 3.457 |
+| EUR | PEN | buy | 3.854 |
+| EUR | PEN | sell | 3.867 |
+| USD | PEN | buy | 3.434 |
+| USD | PEN | sell | 3.448 |
 
 Source: [Official rates published by BCRP, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/bcrp/). Rates are as printed by the central bank; AllRatesToday is not affiliated with it.
 <!-- daily-table:end -->
