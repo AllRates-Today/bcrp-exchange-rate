@@ -42,7 +42,7 @@ The open endpoint serves the *latest* table only and asks for a visible attribut
 The image is rendered live from the keyless endpoint above, so it follows the central bank's publications on npm and on GitHub alike without a new release. The text copy below is there for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the central bank publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-Published **2026-10-12** by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-13.
+Published **2026-10-12** by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-14.
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
@@ -106,10 +106,10 @@ const pair = await getRate('USD', 'PEN', { apiKey: 'art_live_...' });
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-10-09',   // Central Reserve Bank of Peru's own publication date
+  rate_date: '2026-10-12',   // Central Reserve Bank of Peru's own publication date
   source: 'USD',
   target: 'PEN',
-  rate: 3.457,
+  rate: 3.448,
   rate_type: 'sell',
   derived: false,
   method: 'published',
@@ -134,10 +134,10 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'bcrp',
   name: 'Central Reserve Bank of Peru',
-  rate_date: '2026-10-09',
+  rate_date: '2026-10-12',
   rates: [
-    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.457 },
-    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.45 },
+    { "base": "USD", "quote": "PEN", "type": "sell", "value": 3.448 },
+    { "base": "USD", "quote": "PEN", "type": "buy", "value": 3.434 },
     // … the rest of the published table (2 currencies vs PEN)
   ],
   disclaimer: '…'
@@ -177,7 +177,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'bcrp-exchange-rate';
 
 const series = await getHistory(
-  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-10-09' },
+  { source: 'USD', target: 'PEN', from: '2026-01-01', to: '2026-10-12' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -190,11 +190,11 @@ const series = await getHistory(
   source: 'USD',
   target: 'PEN',
   from: '2026-01-01',
-  to: '2026-10-09',
+  to: '2026-10-12',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-10-09', rate: 3.457, rate_type: 'sell', derived: false, method: 'published' },
+    { date: '2026-10-12', rate: 3.448, rate_type: 'sell', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
