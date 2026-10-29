@@ -47,7 +47,7 @@ The image is rendered live from the keyless endpoint above, so it follows the ce
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-10-27 by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-28.</summary>
+<summary>Table as text: published 2026-10-27 by Central Reserve Bank of Peru — 4 rates. Updated 2026-10-29.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
@@ -220,6 +220,7 @@ The Central Reserve Bank of Peru (BCRP) is Peru's autonomous central bank. It pu
 
 - Publisher's own page: [Tipo de cambio — daily series](https://estadisticas.bcrp.gob.pe/estadisticas/series/diarias/tipo-de-cambio) · [www.bcrp.gob.pe](https://www.bcrp.gob.pe)
 - Publication: every business day; the exact schedule, freshness status and any current delay are on the [Central Reserve Bank of Peru rates page](https://allratestoday.com/central-bank-rates-api/bcrp/)
+- In the API: usually by **23:30 UTC** (measured over the last 9 publications). Schedule a sync at or after that time and retry hourly until `rate_date` moves; every response carries the same figure as `available_by_utc` — see [when to poll](https://allratestoday.com/docs/#when-to-poll)
 - Values are stored unmodified, with the publisher's own `rate_date` on every row — see the [methodology](https://allratestoday.com/official-rates-methodology/)
 
 ## 🧭 Reading the numbers
