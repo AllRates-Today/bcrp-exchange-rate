@@ -32,10 +32,12 @@ The image is rendered live from the keyless endpoint, so it follows the central 
 
 <!-- daily-table:start -->
 <details>
-<summary>Table as text: published 2026-11-02 by Central Reserve Bank of Peru — 2 rates. Updated 2026-11-03.</summary>
+<summary>Table as text: published 2026-11-02 by Central Reserve Bank of Peru — 4 rates. Updated 2026-11-03.</summary>
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
+| EUR | PEN | buy | 3.745 |
+| EUR | PEN | sell | 3.907 |
 | USD | PEN | buy | 3.456 |
 | USD | PEN | sell | 3.466 |
 
